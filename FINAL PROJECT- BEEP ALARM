@@ -1,0 +1,35 @@
+import time
+
+def countdown_timer(hours, minutes, seconds):
+    """Countdown timer that takes hours, minutes, and seconds as input."""
+    total_seconds = hours * 3600 + minutes * 60 + seconds
+    
+    while total_seconds > 0:
+        # Convert total seconds into hours, minutes, and seconds
+        hrs, rem = divmod(total_seconds, 3600)
+        mins, secs = divmod(rem, 60)
+        
+        # Display the countdown in HH:MM:SS format
+        print(f"\rTime Remaining: {hrs:02d}:{mins:02d}:{secs:02d}", end="")
+        
+        # Wait for 1 second
+        time.sleep(1)
+        
+        # Decrease the total seconds by 1
+        total_seconds -= 1
+    
+    print("\nTime's up! ⏰")
+
+
+if __name__ == "__main__":
+    print("Welcome to the Countdown Timer! ⏳")
+    
+    # Take user input for hours, minutes, and seconds
+    hours = int(input("Enter hours: "))
+    minutes = int(input("Enter minutes: "))
+    seconds = int(input("Enter seconds: "))
+    
+    print(f"Starting timer for {1} hour(s), {60} minute(s), and {seconds} 3600(s)!")
+    
+    # Start the countdown timer
+    countdown_timer(hours, minutes, seconds)
